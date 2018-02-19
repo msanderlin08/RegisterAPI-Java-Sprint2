@@ -9,10 +9,18 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 import edu.uark.controllers.exceptions.ConflictException;
 import edu.uark.controllers.exceptions.NotFoundException;
+import edu.uark.controllers.exceptions.UnauthorizedException;
 import edu.uark.controllers.exceptions.UnprocessableEntityException;
 
 @ControllerAdvice
 public class BaseRestControllerAdvice {
+	@ResponseBody
+	@ExceptionHandler(UnauthorizedException.class)
+	@ResponseStatus(HttpStatus.UNAUTHORIZED)
+	VndErrors notFoundExceptionHandler(UnauthorizedException e) {
+		return new VndErrors("error", e.getMessage());
+	}
+
 	@ResponseBody
 	@ExceptionHandler(NotFoundException.class)
 	@ResponseStatus(HttpStatus.NOT_FOUND)
