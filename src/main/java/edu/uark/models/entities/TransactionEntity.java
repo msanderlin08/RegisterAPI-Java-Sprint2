@@ -4,6 +4,7 @@ import edu.uark.dataaccess.entities.BaseEntity;
 import edu.uark.dataaccess.repository.DatabaseTable;
 import edu.uark.models.api.Transaction;
 import edu.uark.models.entities.fieldnames.TransactionFieldNames;
+import org.apache.commons.lang3.StringUtils;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
